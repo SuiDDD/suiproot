@@ -5,7 +5,7 @@
 该构建方案采用了 “混合链接策略”：
  * 静态集成 Talloc: 将 talloc 2.4.2 直接嵌入 proot 主程序，消除对外部非系统库的依赖。
  * 动态链接 Bionic: 链接至 Android 原生 libc.so 和 libdl.so，确保在 API 35 (Android 15) 上的系统调用兼容性与稳定性。
-🛠️ 技术特性
+## 🛠️ 技术特性
  * WSL 友好: 适配 Linux 子系统下的交叉编译路径解析。
  * 一命速通: 脚本提供下载+补丁+编译等一条龙服务，支持continue断点续编。
  * 现代 Android 适配: 针对 ashmem 和 memfd 进行了源码级头文件补丁。
