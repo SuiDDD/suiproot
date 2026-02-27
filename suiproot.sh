@@ -1,3 +1,4 @@
+clear
 if [ "$1" != "continue" ]; then
    sudo apt update
    sudo apt install -y build-essential git wget unzip
@@ -77,6 +78,7 @@ if [ -f bin/default/talloc.vscript ]; then
 fi
 make
 cd ../src
+make clean
 sed -i '1i #include <string.h>' extension/ashmem_memfd/ashmem_memfd.c
 make proot CC="$CC" OBJCOPY="$OBJCOPY" CFLAGS="-I$TALLOC_DIR -I$TALLOC_DIR/lib/replace" LOADER_32BIT=off OBJCOPY_ARCH="elf64-littleaarch64" OBJIFY='@echo "  GEN $@"; $(OBJCOPY) --input-target=binary --output-target=elf64-littleaarch64 --binary-architecture aarch64 $< $@' || true
 TALLOC_OBJ=$(find $TALLOC_DIR/bin/default -name "talloc.c.*.o" | head -n 1)
