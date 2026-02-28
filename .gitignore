@@ -1,0 +1,12 @@
+android-ndk-*
+doc/
+/src/build.h
+/src/loader/loader
+/src/loader/loader-info.c
+/src/loader/loader-m32
+/src/proot
+*.d
+*.o
+*.res
+talloc-*
+*~
